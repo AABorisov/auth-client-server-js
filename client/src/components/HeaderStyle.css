@@ -1,0 +1,33 @@
+.header {
+    font-family: sans-serif;
+    padding: 10px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkcyan;
+}
+
+.header a {
+    margin: 0 10px;
+    border-radius: 20px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.signout {
+    background-color: coral;
+}
+
+.signin {
+    background-color: #3d9c03;
+}
+
+.signup {
+    background-color: green;
+}
+
+.feature {
+    background-color: mediumspringgreen;
+}
