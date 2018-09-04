@@ -1,3 +1,6 @@
 node_modules
-secret.js
+
+# Don't show it in production
+# secret.js
+
 .idea

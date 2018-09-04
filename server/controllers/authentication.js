@@ -10,6 +10,12 @@ function tokenForUser(user) {
     }, config.secret)
 }
 
+export function signin(req, res, next) {
+    // User has already had their email and password auth'd
+    // We just need to give them a token
+    return res.send({token : tokenForUser(req.user)});
+}
+
 export function signup(req, res, next) {
   const {email, password} = req.body;
 
@@ -42,7 +48,7 @@ export function signup(req, res, next) {
           error : err.message
         });
       }
-        // Respond to request indicationg the user was created
+        // Respond to request indicating the user was created
       return next(err);
     });
 }

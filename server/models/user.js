@@ -15,10 +15,14 @@ const userSchema = new Schema({
 // On Save Hook, encrypt password
 userSchema.pre('save', async function() {
   const saltRounds = 10;
-  await bcrypt.hash(this.password, saltRounds).then((hash) => {
+  await bcrypt.hash(this.password, saltRounds).then(hash => {
     this.password = hash;
   })
 });
+
+userSchema.methods.validPasswordPromise = async function(candidatePassword) {
+    return bcrypt.compare(candidatePassword, this.password);
+};
 
 // Create the modal class
 const ModelClass = mongoose.model('user', userSchema);
